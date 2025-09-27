@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class StudentAverage {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter student name: ");
+        String name = sc.nextLine();
+        
+        System.out.print("Enter English marks: ");
+        double eng = sc.nextDouble();
+        
+        System.out.print("Enter Maths marks: ");
+        double math = sc.nextDouble();
+        
+        System.out.print("Enter Science marks: ");
+        double sci = sc.nextDouble();
+        
+        double average = (eng + math + sci) / 3;
+        System.out.println(name + "'s average mark = " + average);
+        
+        sc.close();
+    }
+}
