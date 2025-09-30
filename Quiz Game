@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class QuizGame {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Questions
+        String[] questions = {
+            "1) What is the capital city of Kenya?",
+            "2) Who developed Java Programming Language?",
+            "3) Which keyword is used to inherit a class in Java?",
+            "4) Which data type is used to store true/false values?",
+            "5) What is 10 divided by 2?"
+        };
+
+        // Options
+        String[][] options = {
+            {"a) Nairobi", "b) Mombasa", "c) Kisumu", "d) Nakuru"},
+            {"a) Dennis Ritchie", "b) James Gosling", "c) Bjarne Stroustrup", "d) Guido van Rossum"},
+            {"a) this", "b) extends", "c) implements", "d) super"},
+            {"a) int", "b) String", "c) boolean", "d) double"},
+            {"a) 2", "b) 5", "c) 10", "d) 20"}
+        };
+
+        // Correct answers
+        char[] answers = {'a', 'b', 'b', 'c', 'b'};
+
+        int score = 0;
+
+        System.out.println("🎉 Welcome to the Java Quiz Game! 🎉");
+        System.out.println("Enter your answer as: a, b, c, or d.\n");
+
+        // Loop through questions
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println(questions[i]);
+
+            for (int j = 0; j < options[i].length; j++) {
+                System.out.println(options[i][j]);
+            }
+
+            System.out.print("Your answer: ");
+            char userAnswer = sc.next().toLowerCase().charAt(0);  // read first letter
+
+            if (userAnswer == answers[i]) {
+                System.out.println("✅ Correct!\n");
+                score++;
+            } else {
+                System.out.println("❌ Wrong! Correct answer is: " + answers[i] + "\n");
+            }
+        }
+
+        // Final score
+        System.out.println("🎯 Quiz Over! You scored " + score + " out of " + questions.length);
+
+        sc.close();
+    }
+}
