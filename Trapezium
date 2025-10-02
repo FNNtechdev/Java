@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class TrapeziumArea {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input
+        System.out.print("Enter length of first parallel side (a): ");
+        double a = sc.nextDouble();
+
+        System.out.print("Enter length of second parallel side (b): ");
+        double b = sc.nextDouble();
+
+        System.out.print("Enter height (h): ");
+        double h = sc.nextDouble();
+
+        // Calculation
+        double area = 0.5 * (a + b) * h;
+
+        // Output
+        System.out.println("Area of the trapezium = " + area);
+
+        sc.close();
+    }
+}
