@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class SalaryCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Step 1: Input values
+        System.out.print("Enter Basic Salary: ");
+        double basicSalary = sc.nextDouble();
+
+        System.out.print("Enter House Allowance: ");
+        double houseAllowance = sc.nextDouble();
+
+        System.out.print("Enter Transport Allowance: ");
+        double transportAllowance = sc.nextDouble();
+
+        System.out.print("Enter Tax Deduction: ");
+        double tax = sc.nextDouble();
+
+        System.out.print("Enter Other Deductions: ");
+        double otherDeductions = sc.nextDouble();
+
+        // Step 2: Calculate gross and net salary
+        double grossSalary = basicSalary + houseAllowance + transportAllowance;
+        double netSalary = grossSalary - (tax + otherDeductions);
+
+        // Step 3: Display results
+        System.out.println("\n--- Salary Details ---");
+        System.out.println("Gross Salary = " + grossSalary);
+        System.out.println("Total Deductions = " + (tax + otherDeductions));
+        System.out.println("Net Salary = " + netSalary);
+
+        sc.close();
+    }
+}
