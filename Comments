@@ -1,0 +1,15 @@
+public class Main {
+	//where the program starts
+	public static void main(String[] args) {
+		//'public': means that the method can be called from anywhere 
+		//'static': means the method belongs to the class itself
+		//'void': means that the method does not return any value
+		//'main': its the name of the method where program execution starts
+		//'String[]args': allows the program to accept input from the user
+		String name = "Faith Paul";
+		int age = 19;
+		System.out.println(name);
+		System.out.println(age);
+		
+	}
+}
