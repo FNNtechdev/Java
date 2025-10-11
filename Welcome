@@ -1,0 +1,10 @@
+public class DeveloperInfo {
+	public static void main(String[] args) {
+		string name = "Engineer Faith Paul";
+		string favouriteQuote = "Focus on the progress not Perfection";
+		string goal = "Becoming a senior Cybersecurity Engineer";
+		System.out.println(name);
+		System.out.println(favouriteQuote);
+		System.out.println(goal);
+	}
+}
