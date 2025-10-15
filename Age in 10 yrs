@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class AgeInTenYears {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter your age: ");
+        int age = input.nextInt();
+
+        int futureAge = age + 10;
+
+        System.out.println("In 10 years, you will be " + futureAge + " years old.");
+
+        input.close();
+    }
+}
