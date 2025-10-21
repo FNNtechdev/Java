@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class SimpleBank {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        double balance = 0.0;
+        int choice;
+
+        System.out.println("===== Welcome to KYU Digital Bank =====");
+
+        // Loop until user chooses to exit
+        do {
+            System.out.println("\n--- Main Menu ---");
+            System.out.println("1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Check Balance");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = input.nextInt();
+
+            switch (choice) {
+                case 1:
+                    // Deposit money
+                    System.out.print("Enter amount to deposit: ");
+                    double deposit = input.nextDouble();
+                    if (deposit > 0) {
+                        balance += deposit;
+                        System.out.println("✅ Successfully deposited Ksh " + deposit);
+                    } else {
+                        System.out.println("❌ Invalid deposit amount!");
+                    }
+                    break;
+
+                case 2:
+                    // Withdraw money
+                    System.out.print("Enter amount to withdraw: ");
+                    double withdraw = input.nextDouble();
+                    if (withdraw > 0 && withdraw <= balance) {
+                        balance -= withdraw;
+                        System.out.println("✅ Successfully withdrew Ksh " + withdraw);
+                    } else if (withdraw > balance) {
+                        System.out.println("❌ Insufficient balance!");
+                    } else {
+                        System.out.println("❌ Invalid withdrawal amount!");
+                    }
+                    break;
+
+                case 3:
+                    // Check balance
+                    System.out.println("💰 Your current balance is: Ksh " + balance);
+                    break;
+
+                case 4:
+                    // Exit
+                    System.out.println("👋 Thank you for banking with us!");
+                    break;
+
+                default:
+                    System.out.println("❌ Invalid choice! Please enter 1–4.");
+            }
+
+        } while (choice != 4);
+
+        input.close();
+    }
+}
