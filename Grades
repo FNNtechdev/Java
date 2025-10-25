@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class StudentGradeSystem {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        String[] names = new String[5];
+        int[] marks = new int[5];
+        char[] grades = new char[5];
+        
+        System.out.println("=== STUDENT GRADE SYSTEM ===");
+        
+        // Step 1: Input student names and marks
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Enter name of student " + (i + 1) + ": ");
+            names[i] = input.nextLine();
+            
+            System.out.print("Enter marks for " + names[i] + ": ");
+            marks[i] = input.nextInt();
+            input.nextLine(); // consume the newline
+            
+            // Step 2: Determine grade based on marks
+            if (marks[i] >= 80 && marks[i] <= 100) {
+                grades[i] = 'A';
+            } else if (marks[i] >= 70) {
+                grades[i] = 'B';
+            } else if (marks[i] >= 60) {
+                grades[i] = 'C';
+            } else if (marks[i] >= 50) {
+                grades[i] = 'D';
+            } else {
+                grades[i] = 'F';
+            }
+        }
+        
+        System.out.println("\n=== STUDENT RESULTS ===");
+        
+        // Step 3: Display names, marks, and grades
+        double totalMarks = 0;
+        int topIndex = 0;
+        
+        for (int i = 0; i < 5; i++) {
+            System.out.println(names[i] + " - Marks: " + marks[i] + " - Grade: " + grades[i]);
+            totalMarks += marks[i];
+            
+            if (marks[i] > marks[topIndex]) {
+                topIndex = i;
+            }
+        }
+        
+        // Step 4: Compute and display class average and top student
+        double average = totalMarks / 5;
+        System.out.println("\nClass Average: " + average);
+        System.out.println("Top Student: " + names[topIndex] + " with " + marks[topIndex] + " marks (" + grades[topIndex] + ")");
+        
+        input.close();
+    }
+}
