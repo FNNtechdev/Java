@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class ReplaceSpaces {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = input.nextLine();
+
+        String replaced = sentence.replace(" ", "_");
+        System.out.println("Modified sentence: " + replaced);
+        
+        input.close();
+    }
+}
