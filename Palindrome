@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a word: ");
+        String word = input.nextLine().toLowerCase();
+
+        String reversed = new StringBuilder(word).reverse().toString();
+
+        if (word.equals(reversed)) {
+            System.out.println("It's a palindrome!");
+        } else {
+            System.out.println("Not a palindrome.");
+        }
+        
+        input.close();
+    }
+}
