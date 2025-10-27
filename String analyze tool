@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class StringAnalyzer {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a word or sentence: ");
+        String text = input.nextLine();
+        String lower = text.toLowerCase();
+        String trimmed = text.trim();
+        
+        // 1. Length and First Character
+        System.out.println("\n--- String Analysis ---");
+        System.out.println("Length: " + text.length());
+        System.out.println("First Character: " + text.charAt(0));
+        System.out.println("Uppercase: " + text.toUpperCase());
+
+        // 2. Count vowels
+        int vowels = 0;
+        for (char ch : lower.toCharArray()) {
+            if ("aeiou".indexOf(ch) != -1) vowels++;
+        }
+        System.out.println("Vowel Count: " + vowels);
+
+        // 3. Count words
+        String[] words = trimmed.split("\\s+");
+        System.out.println("Word Count: " + words.length);
+
+        // 4. Palindrome check
+        String reversed = new StringBuilder(lower.replaceAll("\\s+", "")).reverse().toString();
+        if (lower.replaceAll("\\s+", "").equals(reversed))
+            System.out.println("Palindrome: Yes");
+        else
+            System.out.println("Palindrome: No");
+
+        // 5. Replace spaces with underscores
+        System.out.println("With underscores: " + text.replace(" ", "_"));
+
+        input.close();
+    }
+}
