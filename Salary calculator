@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class PayCalculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        final double HOURLY_RATE = 8.0;
+        double overtimePay = 0.0;
+        double grossPay = 0.0;
+
+        System.out.print("Enter total hours worked this week: ");
+        double hoursWorked = input.nextDouble();
+
+        if (hoursWorked <= 35) {
+            // Case 1: No overtime
+            grossPay = hoursWorked * HOURLY_RATE;
+        } else if (hoursWorked <= 60) {
+            // Case 2: Overtime at 1.5x rate
+            double normalPay = 35 * HOURLY_RATE;
+            double overtimeHours = hoursWorked - 35;
+            overtimePay = overtimeHours * (1.5 * HOURLY_RATE);
+            grossPay = normalPay + overtimePay;
+        } else {
+            // Case 3: Overtime at both 1.5x and 2x rates
+            double normalPay = 35 * HOURLY_RATE;
+            double overtime25Pay = 25 * (1.5 * HOURLY_RATE);
+            double extraHours = hoursWorked - 60;
+            double overtime2xPay = extraHours * (2 * HOURLY_RATE);
+            overtimePay = overtime25Pay + overtime2xPay;
+            grossPay = normalPay + overtimePay;
+        }
+
+        System.out.println("\n--- Payment Summary ---");
+        System.out.println("Hours Worked: " + hoursWorked);
+        System.out.printf("Overtime Pay: Ksh %.2f%n", overtimePay);
+        System.out.printf("Gross Pay: Ksh %.2f%n", grossPay);
+
+        input.close();
+    }
+}
