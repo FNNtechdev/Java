@@ -1,0 +1,87 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+// Class to represent a single milk delivery record
+class MilkDelivery {
+    String customerName;
+    String date;
+    double liters;
+
+    MilkDelivery(String customerName, String date, double liters) {
+        this.customerName = customerName;
+        this.date = date;
+        this.liters = liters;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer: " + customerName +
+               " | Date: " + date +
+               " | Liters: " + liters;
+    }
+}
+
+// Main class for the delivery system
+public class MilkDeliveryRecorder {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<MilkDelivery> deliveries = new ArrayList<>();
+
+        int choice;
+        do {
+            System.out.println("\n====== MILK DELIVERY RECORDING SYSTEM ======");
+            System.out.println("1. Record new delivery");
+            System.out.println("2. View all deliveries");
+            System.out.println("3. Calculate total milk delivered");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter customer name: ");
+                    String name = scanner.nextLine();
+
+                    System.out.print("Enter delivery date (e.g., 2025-11-01): ");
+                    String date = scanner.nextLine();
+
+                    System.out.print("Enter liters delivered: ");
+                    double liters = scanner.nextDouble();
+
+                    deliveries.add(new MilkDelivery(name, date, liters));
+                    System.out.println("✅ Delivery recorded successfully!");
+                    break;
+
+                case 2:
+                    if (deliveries.isEmpty()) {
+                        System.out.println("No deliveries recorded yet.");
+                    } else {
+                        System.out.println("\n---- All Deliveries ----");
+                        for (MilkDelivery d : deliveries) {
+                            System.out.println(d);
+                        }
+                    }
+                    break;
+
+                case 3:
+                    double total = 0;
+                    for (MilkDelivery d : deliveries) {
+                        total += d.liters;
+                    }
+                    System.out.println("Total milk delivered: " + total + " liters");
+                    break;
+
+                case 4:
+                    System.out.println("Exiting system... Goodbye!");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+
+        } while (choice != 4);
+
+        scanner.close();
+    }
+}
