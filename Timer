@@ -1,0 +1,21 @@
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class DigitalClock {
+    public static void main(String[] args) {
+        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+        while (true) {
+            LocalTime now = LocalTime.now();
+            String formattedTime = now.format(timeFormat);
+            System.out.print("\r⏰ Current Time: " + formattedTime); // \r keeps it on one line
+
+            try {
+                Thread.sleep(1000); // Update every second
+            } catch (InterruptedException e) {
+                System.out.println("Clock interrupted.");
+                break;
+            }
+        }
+    }
+}
