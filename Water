@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class SmartWaterBill {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("💧 Welcome to the Fnntech Water Billing System 💧");
+        System.out.print("Enter the number of cubic meters (m³) of water used: ");
+        double usage = scanner.nextDouble();
+
+        double rate;
+        double bill;
+
+        // Step 1: Apply tiered pricing
+        if (usage <= 20) {
+            rate = 100.0; // Normal rate
+        } else if (usage <= 50) {
+            rate = 120.0; // Moderate usage
+        } else {
+            rate = 150.0; // Heavy usage
+        }
+
+        bill = usage * rate;
+
+        // Step 2: Ask about payment delay
+        System.out.print("Was the payment delayed? (yes/no): ");
+        String delay = scanner.next().toLowerCase();
+
+        double penalty = 0.0;
+        if (delay.equals("yes")) {
+            penalty = 0.10 * bill; // 10% penalty for late payment
+            bill += penalty;
+        }
+
+        // Step 3: Display the detailed bill
+        System.out.println("\n==============================");
+        System.out.println("       💧 WATER BILL 💧        ");
+        System.out.println("==============================");
+        System.out.printf("Water Used: %.2f m³\n", usage);
+        System.out.printf("Rate per m³: Ksh %.2f\n", rate);
+        System.out.printf("Subtotal: Ksh %.2f\n", (bill - penalty));
+        if (penalty > 0) {
+            System.out.printf("Late Payment Penalty: Ksh %.2f\n", penalty);
+        }
+        System.out.println("------------------------------");
+        System.out.printf("💰 Total Bill: Ksh %.2f\n", bill);
+        System.out.println("==============================");
+        System.out.println("✅ Thank you for conserving water!");
+        System.out.println("🌿 Save water, save life 🌿");
+
+        scanner.close();
+    }
+}
