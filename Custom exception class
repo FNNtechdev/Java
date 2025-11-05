@@ -1,0 +1,30 @@
+// Custom Exception Class
+class BookNotAvailableException extends Exception {
+    public BookNotAvailableException(String message) {
+        super(message);
+    }
+}
+
+// Demonstration of exception handling
+class LibraryDemo {
+    private boolean isBorrowed = false;
+
+    public void borrowBook(String bookTitle) throws BookNotAvailableException {
+        if (isBorrowed)
+            throw new BookNotAvailableException(bookTitle + " is already borrowed!");
+        else {
+            isBorrowed = true;
+            System.out.println("You have successfully borrowed: " + bookTitle);
+        }
+    }
+
+    public static void main(String[] args) {
+        LibraryDemo lib = new LibraryDemo();
+        try {
+            lib.borrowBook("Java Programming");
+            lib.borrowBook("Java Programming"); // Attempting to borrow again
+        } catch (BookNotAvailableException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
