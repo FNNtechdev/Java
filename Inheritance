@@ -1,0 +1,27 @@
+// Subclass demonstrating inheritance and polymorphism
+class StaffMember extends Member {
+    private String department;
+
+    // Constructor using super() to call parent constructor
+    public StaffMember(String name, int memberId, String department) {
+        super(name, memberId);
+        this.department = department;
+    }
+
+    // Overridden method (Polymorphism)
+    @Override
+    public String getName() {
+        return super.getName() + " (Staff - " + department + ")";
+    }
+
+    // Additional method showing staff privileges
+    public void displayPrivileges() {
+        System.out.println(getName() + " has extended borrowing privileges (up to 10 books for 1 month).");
+    }
+
+    // Main for testing
+    public static void main(String[] args) {
+        StaffMember staff = new StaffMember("Faith Njoroge", 201, "Computer Science");
+        staff.displayPrivileges();
+    }
+}
