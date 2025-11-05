@@ -1,0 +1,55 @@
+// Book class
+class Book {
+    private String title;
+    private String author;
+
+    // Constructor
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+
+    // Getters (Encapsulation)
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+}
+
+// Member class
+class Member {
+    private String name;
+    private int memberId;
+
+    // Constructor
+    public Member(String name, int memberId) {
+        this.name = name;
+        this.memberId = memberId;
+    }
+
+    public String getName() { return name; }
+    public int getMemberId() { return memberId; }
+}
+
+// Library class
+class Library {
+    private Book book;
+    private Member member;
+
+    // Constructor linking Book and Member
+    public Library(Book book, Member member) {
+        this.book = book;
+        this.member = member;
+    }
+
+    // Method to display borrowed details
+    public void displayBorrowDetails() {
+        System.out.println(member.getName() + " borrowed \"" + book.getTitle() + "\" by " + book.getAuthor());
+    }
+
+    // Main method for testing
+    public static void main(String[] args) {
+        Book b1 = new Book("Java Programming", "James Gosling");
+        Member m1 = new Member("Faith Njoroge", 101);
+        Library lib = new Library(b1, m1);
+        lib.displayBorrowDetails();
+    }
+}
