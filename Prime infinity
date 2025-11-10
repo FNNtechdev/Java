@@ -1,0 +1,25 @@
+public class InfinitePrimes {
+    public static void main(String[] args) {
+        int num = 2; // start from the first prime number
+        
+        System.out.println("Prime numbers from 0 to infinity (press Ctrl + C to stop):");
+        
+        while (true) { // infinite loop
+            if (isPrime(num)) {
+                System.out.println(num);
+            }
+            num++;
+        }
+    }
+
+    // method to check if a number is prime
+    public static boolean isPrime(int n) {
+        if (n < 2) return false;
+        
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) return false;
+        }
+        
+        return true;
+    }
+}
