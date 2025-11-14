@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class FibonacciDoWhile {
+
+    public static void printFibonacci(int n) {
+        int a = 1, b = 1, c, count = 2;
+
+        if (n >= 1) System.out.print(a + " ");
+        if (n >= 2) System.out.print(b + " ");
+
+        do {
+            c = a + b;
+            System.out.print(c + " ");
+
+            a = b;
+            b = c;
+            count++;
+
+        } while (count <= n);
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter N (number of terms): ");
+        int n = input.nextInt();
+
+        printFibonacci(n);
+
+        input.close();
+    }
+}
