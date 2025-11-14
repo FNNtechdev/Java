@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class WorkerPay {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter total hours worked per week: ");
+        double hours = input.nextDouble();
+
+        double normalPay = 0, overtimePay = 0, grossPay = 0;
+
+        double rate = 8; // normal rate
+
+        if (hours <= 35) {
+            normalPay = hours * rate;
+        } else if (hours <= 60) { // includes first 35 hours + overtime 1
+            normalPay = 35 * rate;
+            overtimePay = (hours - 35) * (rate * 1.5);
+        } else { 
+            // more than 60 hours
+            normalPay = 35 * rate;
+            overtimePay = 25 * (rate * 1.5) + (hours - 60) * (rate * 2);
+        }
+
+        grossPay = normalPay + overtimePay;
+
+        System.out.println("Normal Pay: Ksh " + normalPay);
+        System.out.println("Overtime Pay: Ksh " + overtimePay);
+        System.out.println("Gross Pay: Ksh " + grossPay);
+
+        input.close();
+    }
+}
