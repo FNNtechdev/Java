@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class BiggestSmallest {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int[] list = new int[8];
+
+        System.out.println("Enter 8 numbers:");
+        for (int i = 0; i < 8; i++) {
+            list[i] = input.nextInt();
+        }
+
+        int biggest = list[0];
+        int smallest = list[0];
+
+        for (int i = 1; i < 8; i++) {
+            if (list[i] > biggest)
+                biggest = list[i];
+
+            if (list[i] < smallest)
+                smallest = list[i];
+        }
+
+        System.out.println("Biggest number = " + biggest);
+        System.out.println("Smallest number = " + smallest);
+
+        input.close();
+    }
+}
