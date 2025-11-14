@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class SquareNumber {
+
+    public static int square(int x) {
+        return x * x;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = input.nextInt();
+
+        System.out.println("Square = " + square(num));
+
+        input.close();
+    }
+}
